@@ -6,21 +6,28 @@ stylish_settee_price = 180.50
 luxurious_lamp_description = "Luxurious Lamp. Glass and iron. 36 inches tall. Brown with cream shade."
 luxurious_lamp_price = 52.15
 sales_tax = 0.088
+customer_one_subtotal = 0
 customer_one_total = 0
 customer_one_itemization = ""
 customer_one_tax = 0
 
 # customer one
-customer_one_total = lovely_loveseat_price + luxurious_lamp_price
-customer_one_itemization = "Item1: " + lovely_loveseat_description + "\nItem2: " + luxurious_lamp_description
-customer_one_tax = customer_one_total * sales_tax
-customer_one_total += customer_one_tax
+customer_one_subtotal = lovely_loveseat_price + luxurious_lamp_price
+customer_one_itemization = "$ {:0.2f}".format(lovely_loveseat_price) + "  Item1: " + lovely_loveseat_description + "\n" + "$ {:0.2f}".format(luxurious_lamp_price) + "  Item2: " + luxurious_lamp_description
+customer_one_tax = customer_one_subtotal * sales_tax
+customer_one_total = customer_one_subtotal + customer_one_tax
 
 # customer one receipt
 print("Customer One Items:")
-print()
+print("")
 print(customer_one_itemization)
-print()
+print("")
+print("Customer One Sub-Total:")
+print("$ {:0.2f}".format(customer_one_subtotal))
+print("")
+print("Customer One Tax @8.8%:")
+print("$ {:0.2f}".format(customer_one_tax))
+print("")
 print("Customer One Total:")
 # print("$ " + str(customer_one_total))
 print("$ {:0.2f}".format(customer_one_total))
